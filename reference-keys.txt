@@ -6,8 +6,7 @@ werkervaring
 hobbys
 talen
 plan-voor-de-toekomst
-introductie-projecticum-leptospira
-ukrainianstarterpack
+r-package-ukrainianstarterpack
 installation
 functions
 is_ukrainian
@@ -15,4 +14,4 @@ cyr_lang_detect
 ukr_eng_transliterate
 eng_ukr_transliterate
 please-be-aware-of-the-following
-r-package-ukrainianstarterpack
+introductie-projecticum-leptospira
