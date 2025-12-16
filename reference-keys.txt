@@ -6,6 +6,12 @@ werkervaring
 hobbys
 talen
 plan-voor-de-toekomst
+reproduceerbare-data-analyse
+doel
+laden-van-de-data
+data-visualisatie
+data-normalisatie
+conclusie
 r-package-ukrainianstarterpack
 installation
 functions

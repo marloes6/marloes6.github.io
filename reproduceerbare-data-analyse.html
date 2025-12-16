@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Reproduceerbare data-analyse | Portfolio dsfb2 Marloes</title>
+  <meta name="description" content="4 Reproduceerbare data-analyse | Portfolio dsfb2 Marloes" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Reproduceerbare data-analyse | Portfolio dsfb2 Marloes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Reproduceerbare data-analyse | Portfolio dsfb2 Marloes" />
+  
+  
+  
+
+<meta name="author" content="Marloes de Rijk" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="plan-voor-de-toekomst.html"/>
+<link rel="next" href="r-package-ukrainianstarterpack.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introductie</a></li>
+<li class="chapter" data-level="2" data-path="cv.html"><a href="cv.html"><i class="fa fa-check"></i><b>2</b> CV</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="cv.html"><a href="cv.html#opleidingen"><i class="fa fa-check"></i><b>2.1</b> Opleidingen</a></li>
+<li class="chapter" data-level="2.2" data-path="cv.html"><a href="cv.html#stages"><i class="fa fa-check"></i><b>2.2</b> Stages</a></li>
+<li class="chapter" data-level="2.3" data-path="cv.html"><a href="cv.html#werkervaring"><i class="fa fa-check"></i><b>2.3</b> Werkervaring</a></li>
+<li class="chapter" data-level="2.4" data-path="cv.html"><a href="cv.html#hobbys"><i class="fa fa-check"></i><b>2.4</b> Hobby’s</a></li>
+<li class="chapter" data-level="2.5" data-path="cv.html"><a href="cv.html#talen"><i class="fa fa-check"></i><b>2.5</b> Talen</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="plan-voor-de-toekomst.html"><a href="plan-voor-de-toekomst.html"><i class="fa fa-check"></i><b>3</b> Plan voor de toekomst</a></li>
+<li class="chapter" data-level="4" data-path="reproduceerbare-data-analyse.html"><a href="reproduceerbare-data-analyse.html"><i class="fa fa-check"></i><b>4</b> Reproduceerbare data-analyse</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="reproduceerbare-data-analyse.html"><a href="reproduceerbare-data-analyse.html#doel"><i class="fa fa-check"></i><b>4.1</b> Doel</a></li>
+<li class="chapter" data-level="4.2" data-path="reproduceerbare-data-analyse.html"><a href="reproduceerbare-data-analyse.html#laden-van-de-data"><i class="fa fa-check"></i><b>4.2</b> Laden van de data</a></li>
+<li class="chapter" data-level="4.3" data-path="reproduceerbare-data-analyse.html"><a href="reproduceerbare-data-analyse.html#data-visualisatie"><i class="fa fa-check"></i><b>4.3</b> Data visualisatie</a></li>
+<li class="chapter" data-level="4.4" data-path="reproduceerbare-data-analyse.html"><a href="reproduceerbare-data-analyse.html#data-normalisatie"><i class="fa fa-check"></i><b>4.4</b> Data normalisatie</a></li>
+<li class="chapter" data-level="4.5" data-path="reproduceerbare-data-analyse.html"><a href="reproduceerbare-data-analyse.html#conclusie"><i class="fa fa-check"></i><b>4.5</b> Conclusie</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-package-ukrainianstarterpack.html"><a href="r-package-ukrainianstarterpack.html"><i class="fa fa-check"></i><b>5</b> R package: ukrainianstarterpack</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="r-package-ukrainianstarterpack.html"><a href="r-package-ukrainianstarterpack.html#installation"><i class="fa fa-check"></i><b>5.1</b> Installation</a></li>
+<li class="chapter" data-level="5.2" data-path="r-package-ukrainianstarterpack.html"><a href="r-package-ukrainianstarterpack.html#functions"><i class="fa fa-check"></i><b>5.2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="r-package-ukrainianstarterpack.html"><a href="r-package-ukrainianstarterpack.html#is_ukrainian"><i class="fa fa-check"></i><b>5.2.1</b> is_ukrainian()</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-package-ukrainianstarterpack.html"><a href="r-package-ukrainianstarterpack.html#cyr_lang_detect"><i class="fa fa-check"></i><b>5.2.2</b> cyr_lang_detect()</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-package-ukrainianstarterpack.html"><a href="r-package-ukrainianstarterpack.html#ukr_eng_transliterate"><i class="fa fa-check"></i><b>5.2.3</b> ukr_eng_transliterate()</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-package-ukrainianstarterpack.html"><a href="r-package-ukrainianstarterpack.html#eng_ukr_transliterate"><i class="fa fa-check"></i><b>5.2.4</b> eng_ukr_transliterate()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-package-ukrainianstarterpack.html"><a href="r-package-ukrainianstarterpack.html#please-be-aware-of-the-following"><i class="fa fa-check"></i><b>5.3</b> Please be aware of the following:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introductie-projecticum-leptospira.html"><a href="introductie-projecticum-leptospira.html"><i class="fa fa-check"></i><b>6</b> Introductie projecticum Leptospira</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio dsfb2 Marloes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reproduceerbare-data-analyse" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Reproduceerbare data-analyse<a href="reproduceerbare-data-analyse.html#reproduceerbare-data-analyse" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="doel" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Doel<a href="reproduceerbare-data-analyse.html#doel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Het doel van deze opdracht is om een verkregen dataset op een reproduceerbare manier weer te geven. De dataset geeft het aantal C. elegans nakomelingen weer na blootstelling aan verschillende concentraties van verschillende chemicaliën. Voor de analyse worden de variabelen RawData(aantal nakomelingen), compName(naam van de chemicaliën), compConcentration(concentratie van de chemicaliën) en expType(onderscheid tussen experimentele condities en controles) gebruikt.</p>
+</div>
+<div id="laden-van-de-data" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Laden van de data<a href="reproduceerbare-data-analyse.html#laden-van-de-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>De data wordt eerst ingelezen in R vanuit een Excel bestand.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="reproduceerbare-data-analyse.html#cb1-1" tabindex="-1"></a>elegans_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;~/dsfb2_workflows_portfolio/raw_data/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>)</span>
+<span id="cb1-2"><a href="reproduceerbare-data-analyse.html#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="reproduceerbare-data-analyse.html#cb1-3" tabindex="-1"></a><span class="fu">head</span>(elegans_data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 34
+##   plateRow plateColumn vialNr dropCode expType    expReplicate expName        
+##   &lt;lgl&gt;    &lt;lgl&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;          
+## 1 NA       NA               1 a        experiment            3 CE.LIQ.FLOW.062
+## 2 NA       NA               1 b        experiment            3 CE.LIQ.FLOW.062
+## 3 NA       NA               1 c        experiment            3 CE.LIQ.FLOW.062
+## 4 NA       NA               1 d        experiment            3 CE.LIQ.FLOW.062
+## 5 NA       NA               1 e        experiment            3 CE.LIQ.FLOW.062
+## 6 NA       NA               2 a        experiment            3 CE.LIQ.FLOW.062
+## # ℹ 27 more variables: expDate &lt;dttm&gt;, expResearcher &lt;chr&gt;, expTime &lt;dbl&gt;,
+## #   expUnit &lt;chr&gt;, expVolumeCounted &lt;dbl&gt;, RawData &lt;dbl&gt;, compCASRN &lt;chr&gt;,
+## #   compName &lt;chr&gt;, compConcentration &lt;chr&gt;, compUnit &lt;chr&gt;,
+## #   compDelivery &lt;chr&gt;, compVehicle &lt;chr&gt;, elegansStrain &lt;chr&gt;,
+## #   elegansInput &lt;dbl&gt;, bacterialStrain &lt;chr&gt;, bacterialTreatment &lt;chr&gt;,
+## #   bacterialOD600 &lt;dbl&gt;, bacterialConcX &lt;dbl&gt;, bacterialVolume &lt;dbl&gt;,
+## #   bacterialVolUnit &lt;chr&gt;, incubationVial &lt;chr&gt;, incubationVolume &lt;dbl&gt;, …</code></pre>
+<p>De weergegeven datatypes voor de benodigde variabelen zijn als volgt: RawData(dbl), compName(chr), compConcentration(chr). Voor compConcentration zou een numerieke waarde worden verwacht.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="reproduceerbare-data-analyse.html#cb3-1" tabindex="-1"></a>elegans_data_num <span class="ot">&lt;-</span> elegans_data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">compConcentration =</span> <span class="fu">as.numeric</span>(compConcentration))</span>
+<span id="cb3-2"><a href="reproduceerbare-data-analyse.html#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="reproduceerbare-data-analyse.html#cb3-3" tabindex="-1"></a><span class="fu">head</span>(elegans_data_num)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 34
+##   plateRow plateColumn vialNr dropCode expType    expReplicate expName        
+##   &lt;lgl&gt;    &lt;lgl&gt;        &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;          
+## 1 NA       NA               1 a        experiment            3 CE.LIQ.FLOW.062
+## 2 NA       NA               1 b        experiment            3 CE.LIQ.FLOW.062
+## 3 NA       NA               1 c        experiment            3 CE.LIQ.FLOW.062
+## 4 NA       NA               1 d        experiment            3 CE.LIQ.FLOW.062
+## 5 NA       NA               1 e        experiment            3 CE.LIQ.FLOW.062
+## 6 NA       NA               2 a        experiment            3 CE.LIQ.FLOW.062
+## # ℹ 27 more variables: expDate &lt;dttm&gt;, expResearcher &lt;chr&gt;, expTime &lt;dbl&gt;,
+## #   expUnit &lt;chr&gt;, expVolumeCounted &lt;dbl&gt;, RawData &lt;dbl&gt;, compCASRN &lt;chr&gt;,
+## #   compName &lt;chr&gt;, compConcentration &lt;dbl&gt;, compUnit &lt;chr&gt;,
+## #   compDelivery &lt;chr&gt;, compVehicle &lt;chr&gt;, elegansStrain &lt;chr&gt;,
+## #   elegansInput &lt;dbl&gt;, bacterialStrain &lt;chr&gt;, bacterialTreatment &lt;chr&gt;,
+## #   bacterialOD600 &lt;dbl&gt;, bacterialConcX &lt;dbl&gt;, bacterialVolume &lt;dbl&gt;,
+## #   bacterialVolUnit &lt;chr&gt;, incubationVial &lt;chr&gt;, incubationVolume &lt;dbl&gt;, …</code></pre>
+<p>compConcentration(chr) is nu aangepast naar compConcentration(dbl).</p>
+</div>
+<div id="data-visualisatie" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Data visualisatie<a href="reproduceerbare-data-analyse.html#data-visualisatie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>De data wordt weergegeven in een scatterplot, waarin de concentratie van de chemicaliën op de x-as is uitgezet tegen het aantal C. elegans nakomelingen op de y-as. Het onderscheid tussen de verschillende chemicaliën is weergegeven met verschillende kleuren en het onderscheid tussen experimentele condities en controles is weergegeven met verschillende vormen.</p>
+<p>De negatieve controle bestaat uit S medium met een concentratie chemicaliën van 0%, oftewel een bepaling van het aantal C. elegans nakomelingen zonder behandeling met chemicaliën. De positieve controle bestaat uit een behandeling met 1.5% ethanol, en de vehicle A controle uit een behandeling met 0.5% ethanol. De negatieve controle wordt gebruikt als referentie voor het aantal nakomelingen van C. elegans onder de gebruikte experimentele omstandigheden zonder toevoeging van chemicaliën. De positieve controle dient als referentie voor het aantal nakomelingen na behandeling met een stof waarvan bekend is dat deze de reproductie van C. elegans negatief beïnvloedt. De vehicle controle heeft een lagere concentratie ethanol, waardoor dit een controle vormt voor het effect van een lagere dosis chemicaliën.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="reproduceerbare-data-analyse.html#cb5-1" tabindex="-1"></a>elegans_data_num <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="reproduceerbare-data-analyse.html#cb5-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>compConcentration, <span class="at">y=</span>RawData)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="reproduceerbare-data-analyse.html#cb5-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>compName, <span class="at">shape=</span>expType), <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="reproduceerbare-data-analyse.html#cb5-4" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb5-5"><a href="reproduceerbare-data-analyse.html#cb5-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Figure 1. The effect of different chemicals on reproduction of C. elegans&quot;</span>,</span>
+<span id="cb5-6"><a href="reproduceerbare-data-analyse.html#cb5-6" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;Concentration of chemical (nM)&quot;</span>,</span>
+<span id="cb5-7"><a href="reproduceerbare-data-analyse.html#cb5-7" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&quot;C. elegans offspring count&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/scatter%20plot-1.png" width="672" /></p>
+</div>
+<div id="data-normalisatie" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Data normalisatie<a href="reproduceerbare-data-analyse.html#data-normalisatie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>De data wordt nu genormaliseerd voor de negatieve controle. Dit wordt gedaan door het gemiddelde aantal nakomelingen in de negatieve controles te berekenen. Vervolgens wordt het aantal nakomelingen (RawData) voor alle metingen uitgedrukt als fractie van de negatieve controle.</p>
+<p>Door de data te normaliseren wordt de data gecorrigeerd voor het aantal nakomelingen dat aanwezig is zonder behandeling met chemicaliën, oftewel bij het weglaten van de experimentele factor. Hierdoor wordt toe- of afname van het aantal nakomelingen en de schaal daarvan beter zichtbaar voor de experimentele condities.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="reproduceerbare-data-analyse.html#cb6-1" tabindex="-1"></a><span class="co"># Bereken het aantal negatieve controle metingen</span></span>
+<span id="cb6-2"><a href="reproduceerbare-data-analyse.html#cb6-2" tabindex="-1"></a>neg_count <span class="ot">&lt;-</span> elegans_data_num <span class="sc">%&gt;%</span> <span class="fu">filter</span>(expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(RawData) <span class="sc">%&gt;%</span> <span class="fu">count</span>()</span>
+<span id="cb6-3"><a href="reproduceerbare-data-analyse.html#cb6-3" tabindex="-1"></a>neg_count_value <span class="ot">&lt;-</span> neg_count<span class="sc">$</span>n[[<span class="dv">1</span>]]</span>
+<span id="cb6-4"><a href="reproduceerbare-data-analyse.html#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="reproduceerbare-data-analyse.html#cb6-5" tabindex="-1"></a><span class="co"># Bereken het totaal aantal nakomelingen in alle negatieve controle metingen</span></span>
+<span id="cb6-6"><a href="reproduceerbare-data-analyse.html#cb6-6" tabindex="-1"></a>neg_sum <span class="ot">&lt;-</span> elegans_data_num <span class="sc">%&gt;%</span> <span class="fu">filter</span>(expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(RawData) <span class="sc">%&gt;%</span> <span class="fu">sum</span>()</span>
+<span id="cb6-7"><a href="reproduceerbare-data-analyse.html#cb6-7" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="reproduceerbare-data-analyse.html#cb6-8" tabindex="-1"></a><span class="co"># Bereken het gemiddelde aantal nakomelingen in de negatieve controle</span></span>
+<span id="cb6-9"><a href="reproduceerbare-data-analyse.html#cb6-9" tabindex="-1"></a>fraction <span class="ot">&lt;-</span> neg_sum<span class="sc">/</span>neg_count_value</span>
+<span id="cb6-10"><a href="reproduceerbare-data-analyse.html#cb6-10" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="reproduceerbare-data-analyse.html#cb6-11" tabindex="-1"></a><span class="co"># Druk alle RawData meetwaarden uit als fractie van de negatieve controle</span></span>
+<span id="cb6-12"><a href="reproduceerbare-data-analyse.html#cb6-12" tabindex="-1"></a>elegans_data_normalised <span class="ot">&lt;-</span> elegans_data_num <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">RawData_norm =</span> RawData <span class="sc">/</span> fraction)</span></code></pre></div>
+<p>De genormaliseerde data wordt weergegeven in een scatterplot.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="reproduceerbare-data-analyse.html#cb7-1" tabindex="-1"></a>elegans_data_normalised <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="reproduceerbare-data-analyse.html#cb7-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>compConcentration, <span class="at">y=</span>RawData_norm)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="reproduceerbare-data-analyse.html#cb7-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>compName, <span class="at">shape=</span>expType), <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="reproduceerbare-data-analyse.html#cb7-4" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb7-5"><a href="reproduceerbare-data-analyse.html#cb7-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Figure 2. The effect of different chemicals on reproduction of C. elegans&quot;</span>,</span>
+<span id="cb7-6"><a href="reproduceerbare-data-analyse.html#cb7-6" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;Concentration of chemical (nM)&quot;</span>,</span>
+<span id="cb7-7"><a href="reproduceerbare-data-analyse.html#cb7-7" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&quot;C. elegans offspring count (fraction of negative control)&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/normalised%20scatter%20plot-1.png" width="672" /></p>
+</div>
+<div id="conclusie" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Conclusie<a href="reproduceerbare-data-analyse.html#conclusie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Uit figuur 2 blijkt dat een toename van de concentratie voor zowel 2,6-diisopropylnapthalene, decane en napthalene leidt tot een daling van het aantal nakomelingen van C. elegans. Dit effect is het sterkst te merken bij decane en bij een hoge concentratie naphtalene (&gt;1e+01).</p>
+<p>Vervolgonderzoek kan bestaan uit het bepalen van de IC50-concentratie door middel van een dose-response analyse. Hiervoor kan gebruik worden gemaakt van de functie llogistic() in het drc package in R. Eerst wordt een schatting gemaakt van de parameters, hiervoor kan de drm() functie worden gebruikt. De resultaten hiervan kunnen worden weergegeven met de summary() en coef() functies. Met de ED() functie kan een schatting worden gemaakt van de ED50. Met de predict() functie kan data worden verzameld voor het maken van een plot. Voor het maken van de plot kan gebruik worden gemaakt van de functie plot() of van de ggplot2 package.</p>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="plan-voor-de-toekomst.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-package-ukrainianstarterpack.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
