@@ -12,6 +12,10 @@ laden-van-de-data
 data-visualisatie
 data-normalisatie
 conclusie
+beoordeling-reproduceerbaarheid-artikel
+gegevens-artikel
+reproduceerbaarheid-artikel
+reproduceerbaarheid-r-code
 r-package-ukrainianstarterpack
 installation
 functions
