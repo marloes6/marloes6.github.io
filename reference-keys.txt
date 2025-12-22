@@ -25,3 +25,8 @@ ukr_eng_transliterate
 eng_ukr_transliterate
 please-be-aware-of-the-following
 introductie-projecticum-leptospira
+covid-19-cases-in-europe
+goal
+covid-19-cases
+covid-19-related-deaths
+how-it-works
