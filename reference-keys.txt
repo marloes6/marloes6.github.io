@@ -7,6 +7,7 @@ hobbys
 talen
 plan-voor-de-toekomst
 guerrilla-analytics-rna-seq
+guerrilla-analytics-portfolio
 reproduceerbare-data-analyse
 doel
 laden-van-de-data

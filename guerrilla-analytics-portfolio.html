@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 R package: ukrainianstarterpack | Portfolio dsfb2 Marloes</title>
-  <meta name="description" content="8 R package: ukrainianstarterpack | Portfolio dsfb2 Marloes" />
+  <title>5 Guerrilla analytics portfolio | Portfolio dsfb2 Marloes</title>
+  <meta name="description" content="5 Guerrilla analytics portfolio | Portfolio dsfb2 Marloes" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 R package: ukrainianstarterpack | Portfolio dsfb2 Marloes" />
+  <meta property="og:title" content="5 Guerrilla analytics portfolio | Portfolio dsfb2 Marloes" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 R package: ukrainianstarterpack | Portfolio dsfb2 Marloes" />
+  <meta name="twitter:title" content="5 Guerrilla analytics portfolio | Portfolio dsfb2 Marloes" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="beoordeling-reproduceerbaarheid-artikel.html"/>
-<link rel="next" href="introductie-projecticum-leptospira.html"/>
+<link rel="prev" href="guerrilla-analytics-rna-seq.html"/>
+<link rel="next" href="reproduceerbare-data-analyse.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -222,81 +222,53 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="r-package-ukrainianstarterpack" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> R package: ukrainianstarterpack<a href="r-package-ukrainianstarterpack.html#r-package-ukrainianstarterpack" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The goal of ukrainianstarterpack is to help you read Ukrainian Cyrillic by determining if a text is Ukrainian, determining which other Cyrillic language a text could be, and transliterating Ukrainian Cyrillic to English Latin script and vice versa.</p>
-<div id="installation" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Installation<a href="r-package-ukrainianstarterpack.html#installation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You can install the development version of ukrainianstarterpack from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-package-ukrainianstarterpack.html#cb8-1" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb8-2"><a href="r-package-ukrainianstarterpack.html#cb8-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;marloes6/ukrainianstarterpack&quot;</span>, <span class="at">build_vignettes=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="guerrilla-analytics-portfolio" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Guerrilla analytics portfolio<a href="guerrilla-analytics-portfolio.html#guerrilla-analytics-portfolio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In de onderstaande screenshots is de indeling van de mappen en bestanden die zijn gebruikt voor het maken van dit portfolio, en de inhoud van het README bestand voor de portfolio repository weergegeven. Het doel van de opdracht is om de bestanden in de portfolio repository op een overzichtelijke manier neer te zetten.</p>
+<p><br></p>
+<div class="float">
+<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_1.jpg" alt="Figuur 1: Weergave van de mapstructuur van dsfb2_workflows_portfolio (1/5)" />
+<div class="figcaption">Figuur 1: Weergave van de mapstructuur van dsfb2_workflows_portfolio (1/5)</div>
 </div>
-<div id="functions" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Functions<a href="r-package-ukrainianstarterpack.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>All functions in ukrainianstarterpack are based on the stringr package. Input text in the functions must be between ” “, and may contain spaces. The functions are sensitive for uppercase/lowercase letters. The different functions in ukrainianstarterpack are explained in more detail below.</p>
-<div id="is_ukrainian" class="section level3 hasAnchor" number="8.2.1">
-<h3><span class="header-section-number">8.2.1</span> is_ukrainian()<a href="r-package-ukrainianstarterpack.html#is_ukrainian" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>is_ukrainian() determines if your text is written in Ukrainian or not. Input should be in Ukrainian, Belarusian, Serbian, Macedonian, Mongolian, Bulgarian or Russian Cyrillic script and be between ” “.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-package-ukrainianstarterpack.html#cb9-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
-<span id="cb9-2"><a href="r-package-ukrainianstarterpack.html#cb9-2" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="r-package-ukrainianstarterpack.html#cb9-3" tabindex="-1"></a><span class="fu">is_ukrainian</span>(<span class="st">&quot;Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе&quot;</span>)</span>
-<span id="cb9-4"><a href="r-package-ukrainianstarterpack.html#cb9-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is Ukrainian.&quot;</span></span>
-<span id="cb9-5"><a href="r-package-ukrainianstarterpack.html#cb9-5" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="r-package-ukrainianstarterpack.html#cb9-6" tabindex="-1"></a><span class="fu">is_ukrainian</span>(<span class="st">&quot;Мы живем все вместе с собакой и кошкой в большом доме в деревне.&quot;</span>)</span>
-<span id="cb9-7"><a href="r-package-ukrainianstarterpack.html#cb9-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is not Ukrainian.&quot;</span></span>
-<span id="cb9-8"><a href="r-package-ukrainianstarterpack.html#cb9-8" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="r-package-ukrainianstarterpack.html#cb9-9" tabindex="-1"></a><span class="fu">is_ukrainian</span>(<span class="st">&quot;так&quot;</span>)</span>
-<span id="cb9-10"><a href="r-package-ukrainianstarterpack.html#cb9-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text may or may not be Ukrainian. Please provide more input if possible.&quot;</span></span></code></pre></div>
+<p><br></p>
+<div class="float">
+<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_2.jpg" alt="Figuur 2: Weergave van de mapstructuur van dsfb2_workflows_portfolio (2/5)" />
+<div class="figcaption">Figuur 2: Weergave van de mapstructuur van dsfb2_workflows_portfolio (2/5)</div>
 </div>
-<div id="cyr_lang_detect" class="section level3 hasAnchor" number="8.2.2">
-<h3><span class="header-section-number">8.2.2</span> cyr_lang_detect()<a href="r-package-ukrainianstarterpack.html#cyr_lang_detect" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>cyr_lang_detect() determines in which Cyrillic language your text is written. Input should be in Ukrainian, Belarusian, Serbian, Macedonian, Mongolian, Bulgarian or Russian Cyrillic script and be between ” “.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-package-ukrainianstarterpack.html#cb10-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
-<span id="cb10-2"><a href="r-package-ukrainianstarterpack.html#cb10-2" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="r-package-ukrainianstarterpack.html#cb10-3" tabindex="-1"></a><span class="fu">cyr_lang_detect</span>(<span class="st">&quot;Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе&quot;</span>)</span>
-<span id="cb10-4"><a href="r-package-ukrainianstarterpack.html#cb10-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is Ukrainian.&quot;</span></span>
-<span id="cb10-5"><a href="r-package-ukrainianstarterpack.html#cb10-5" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="r-package-ukrainianstarterpack.html#cb10-6" tabindex="-1"></a><span class="fu">cyr_lang_detect</span>(<span class="st">&quot;Мы живем все вместе с собакой и кошкой в большом доме в деревне.&quot;</span>)</span>
-<span id="cb10-7"><a href="r-package-ukrainianstarterpack.html#cb10-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is likely Russian.&quot;</span></span>
-<span id="cb10-8"><a href="r-package-ukrainianstarterpack.html#cb10-8" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="r-package-ukrainianstarterpack.html#cb10-9" tabindex="-1"></a><span class="fu">cyr_lang_detect</span>(<span class="st">&quot;так&quot;</span>)</span>
-<span id="cb10-10"><a href="r-package-ukrainianstarterpack.html#cb10-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The language of this text couldn&#39;t be determined. If possible, please provide a longer input for a more accurate result.&quot;</span></span></code></pre></div>
+<p><br></p>
+<div class="float">
+<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_3.jpg" alt="Figuur 3: Weergave van de mapstructuur van dsfb2_workflows_portfolio (3/5)" />
+<div class="figcaption">Figuur 3: Weergave van de mapstructuur van dsfb2_workflows_portfolio (3/5)</div>
 </div>
-<div id="ukr_eng_transliterate" class="section level3 hasAnchor" number="8.2.3">
-<h3><span class="header-section-number">8.2.3</span> ukr_eng_transliterate()<a href="r-package-ukrainianstarterpack.html#ukr_eng_transliterate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>ukr_eng_transliterate() transliterates a text from Ukrainian Cyrillic to English Latin script. Input should be in Ukrainian Cyrillic script and be between ” “.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-package-ukrainianstarterpack.html#cb11-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
-<span id="cb11-2"><a href="r-package-ukrainianstarterpack.html#cb11-2" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="r-package-ukrainianstarterpack.html#cb11-3" tabindex="-1"></a><span class="fu">ukr_eng_transliterate</span>(<span class="st">&quot;Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе&quot;</span>)</span>
-<span id="cb11-4"><a href="r-package-ukrainianstarterpack.html#cb11-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Lyshe raz na sto rokiv Nebo narodzhuye dvokh lyudej z odniyeyu dusheyu I vidpuskaye yikh u chystyj, vil&#39;nyj polit Nam poshchastylo Ya lyublyu tebe&quot;</span></span></code></pre></div>
+<p><br></p>
+<div class="float">
+<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_4.jpg" alt="Figuur 4: Weergave van de mapstructuur van dsfb2_workflows_portfolio (4/5)" />
+<div class="figcaption">Figuur 4: Weergave van de mapstructuur van dsfb2_workflows_portfolio (4/5)</div>
 </div>
-<div id="eng_ukr_transliterate" class="section level3 hasAnchor" number="8.2.4">
-<h3><span class="header-section-number">8.2.4</span> eng_ukr_transliterate()<a href="r-package-ukrainianstarterpack.html#eng_ukr_transliterate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>eng_ukr_transliterate() transliterates a text from English Latin to Ukrainian Cyrillic script. Input should be in English Latin script and be between ” “.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-package-ukrainianstarterpack.html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
-<span id="cb12-2"><a href="r-package-ukrainianstarterpack.html#cb12-2" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="r-package-ukrainianstarterpack.html#cb12-3" tabindex="-1"></a><span class="fu">eng_ukr_transliterate</span>(<span class="st">&quot;Sail and seek The starbound quay Calling you, calling me To be a part of your story&quot;</span>)</span>
-<span id="cb12-4"><a href="r-package-ukrainianstarterpack.html#cb12-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Саіл анд сеек Тге старбоунд куаи Каллінґ иоу, каллінґ ме То бе а парт оф иоур стори&quot;</span></span>
-<span id="cb12-5"><a href="r-package-ukrainianstarterpack.html#cb12-5" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="r-package-ukrainianstarterpack.html#cb12-6" tabindex="-1"></a><span class="fu">eng_ukr_transliterate</span>(<span class="st">&quot;shawl&quot;</span>)</span>
-<span id="cb12-7"><a href="r-package-ukrainianstarterpack.html#cb12-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;шавл&quot;</span></span></code></pre></div>
+<p><br></p>
+<div class="float">
+<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_5.jpg" alt="Figuur 5: Weergave van de mapstructuur van dsfb2_workflows_portfolio (5/5)" />
+<div class="figcaption">Figuur 5: Weergave van de mapstructuur van dsfb2_workflows_portfolio (5/5)</div>
 </div>
+<p><br></p>
+<div class="float">
+<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_6.jpg" alt="Figuur 6: Weergave van de README file voor dsfb2_workflows_portfolio (1/2)" />
+<div class="figcaption">Figuur 6: Weergave van de README file voor dsfb2_workflows_portfolio (1/2)</div>
 </div>
-<div id="please-be-aware-of-the-following" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Please be aware of the following:<a href="r-package-ukrainianstarterpack.html#please-be-aware-of-the-following" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Language detection with ukrainianstarterpack is limited to Ukrainian, Belarusian, Serbian, Macedonian, Mongolian, Bulgarian and Russian. Input of other Cyrillic languages may lead to incorrect detection.</p>
-<p>The language detection is based on the appearance of letters in a text that are unique to a Cyrillic language. If the input text does not contain a letter unique to a language, this may lead to incorrect language detection or the function being unable to detect the language. A longer input text is more likely to contain a letter unique to the language, and thus more likely to be accurately detected. Bulgarian and Russian do not have unique letters compared to all languages used in ukrainianstarterpack, which results in not being able to detect these languages with 100% accuracy.</p>
-<p>The transliteration is based on matching a letter with the closest sounding letter or letter combination in the other script. The transliteration functions do not take into account the different sounds or transliterations a letter could have based on its place in a word, and thus may not be 100% accurate.</p>
+<p><br></p>
+<div class="float">
+<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_7.jpg" alt="Figuur 7: Weergave van de README file voor dsfb2_workflows_portfolio (2/2)" />
+<div class="figcaption">Figuur 7: Weergave van de README file voor dsfb2_workflows_portfolio (2/2)</div>
+</div>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="beoordeling-reproduceerbaarheid-artikel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introductie-projecticum-leptospira.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="guerrilla-analytics-rna-seq.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reproduceerbare-data-analyse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
