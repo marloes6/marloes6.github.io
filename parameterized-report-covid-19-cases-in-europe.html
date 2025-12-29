@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Guerrilla analytics portfolio | Portfolio dsfb2 Marloes</title>
-  <meta name="description" content="6 Guerrilla analytics portfolio | Portfolio dsfb2 Marloes" />
+  <title>11 Parameterized report: COVID-19 cases in Europe | Portfolio dsfb2 Marloes</title>
+  <meta name="description" content="11 Parameterized report: COVID-19 cases in Europe | Portfolio dsfb2 Marloes" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Guerrilla analytics portfolio | Portfolio dsfb2 Marloes" />
+  <meta property="og:title" content="11 Parameterized report: COVID-19 cases in Europe | Portfolio dsfb2 Marloes" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Guerrilla analytics portfolio | Portfolio dsfb2 Marloes" />
+  <meta name="twitter:title" content="11 Parameterized report: COVID-19 cases in Europe | Portfolio dsfb2 Marloes" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="guerrilla-analytics-rna-seq.html"/>
-<link rel="next" href="reproduceerbare-data-analyse.html"/>
+<link rel="prev" href="bronvermelding-introductie-projecticum-leptospira.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -228,53 +228,55 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="guerrilla-analytics-portfolio" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> Guerrilla analytics portfolio<a href="guerrilla-analytics-portfolio.html#guerrilla-analytics-portfolio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In de onderstaande screenshots is de indeling van de mappen en bestanden die zijn gebruikt voor het maken van dit portfolio, en de inhoud van het README bestand voor de portfolio repository weergegeven. Het doel van de opdracht is om de bestanden in de portfolio repository op een overzichtelijke manier neer te zetten.</p>
-<p><br></p>
-<div class="float">
-<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_1.jpg" alt="Figuur 1: Weergave van de mapstructuur van dsfb2_workflows_portfolio (1/5)" />
-<div class="figcaption">Figuur 1: Weergave van de mapstructuur van dsfb2_workflows_portfolio (1/5)</div>
+<div id="parameterized-report-covid-19-cases-in-europe" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Parameterized report: COVID-19 cases in Europe<a href="parameterized-report-covid-19-cases-in-europe.html#parameterized-report-covid-19-cases-in-europe" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="goal" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Goal<a href="parameterized-report-covid-19-cases-in-europe.html#goal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This report shows the COVID-19 cases and deaths in Europe. The goal of this exercise is to present the data for a specific country, month and year by using parameters. The functioning of the parameters is demonstrated in the video at the bottom of this page.</p>
+<p>The data is loaded from the ECDC website.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="parameterized-report-covid-19-cases-in-europe.html#cb13-1" tabindex="-1"></a>covid_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://opendata.ecdc.europa.eu/covid19/nationalcasedeath_eueea_daily_ei/csv&quot;</span>, <span class="at">na.strings =</span> <span class="st">&quot;&quot;</span>, <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8-BOM&quot;</span>)</span></code></pre></div>
 </div>
-<p><br></p>
-<div class="float">
-<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_2.jpg" alt="Figuur 2: Weergave van de mapstructuur van dsfb2_workflows_portfolio (2/5)" />
-<div class="figcaption">Figuur 2: Weergave van de mapstructuur van dsfb2_workflows_portfolio (2/5)</div>
+<div id="covid-19-cases" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> COVID-19 cases<a href="parameterized-report-covid-19-cases-in-europe.html#covid-19-cases" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The amount of COVID-19 cases in <code>Spain</code> in month <code>3</code> of the year <code>2021</code> is shown in the graph below.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="parameterized-report-covid-19-cases-in-europe.html#cb14-1" tabindex="-1"></a>covid_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> params<span class="sc">$</span>year) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="parameterized-report-covid-19-cases-in-europe.html#cb14-2" tabindex="-1"></a>  <span class="fu">filter</span>(month <span class="sc">==</span> params<span class="sc">$</span>month) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="parameterized-report-covid-19-cases-in-europe.html#cb14-3" tabindex="-1"></a>  <span class="fu">filter</span>(countriesAndTerritories <span class="sc">==</span> params<span class="sc">$</span>countriesAndTerritories) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-4"><a href="parameterized-report-covid-19-cases-in-europe.html#cb14-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> params<span class="sc">$</span>month, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="parameterized-report-covid-19-cases-in-europe.html#cb14-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">colour =</span> params<span class="sc">$</span>countriesAndTerritories)) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="parameterized-report-covid-19-cases-in-europe.html#cb14-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;COVID-19 cases&quot;</span>,</span>
+<span id="cb14-7"><a href="parameterized-report-covid-19-cases-in-europe.html#cb14-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Month&quot;</span>,</span>
+<span id="cb14-8"><a href="parameterized-report-covid-19-cases-in-europe.html#cb14-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Cases&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/cases_graph-1.png" width="672" /></p>
 </div>
-<p><br></p>
-<div class="float">
-<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_3.jpg" alt="Figuur 3: Weergave van de mapstructuur van dsfb2_workflows_portfolio (3/5)" />
-<div class="figcaption">Figuur 3: Weergave van de mapstructuur van dsfb2_workflows_portfolio (3/5)</div>
+<div id="covid-19-related-deaths" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> COVID-19 related deaths<a href="parameterized-report-covid-19-cases-in-europe.html#covid-19-related-deaths" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The amount of COVID-19 related deaths in <code>Spain</code> in month <code>3</code> of the year <code>2021</code> is shown in the graph below.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="parameterized-report-covid-19-cases-in-europe.html#cb15-1" tabindex="-1"></a>covid_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> params<span class="sc">$</span>year) <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="parameterized-report-covid-19-cases-in-europe.html#cb15-2" tabindex="-1"></a>  <span class="fu">filter</span>(month <span class="sc">==</span> params<span class="sc">$</span>month) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="parameterized-report-covid-19-cases-in-europe.html#cb15-3" tabindex="-1"></a>  <span class="fu">filter</span>(countriesAndTerritories <span class="sc">==</span> params<span class="sc">$</span>countriesAndTerritories) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="parameterized-report-covid-19-cases-in-europe.html#cb15-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> params<span class="sc">$</span>month, <span class="at">y =</span> deaths)) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="parameterized-report-covid-19-cases-in-europe.html#cb15-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">colour =</span> params<span class="sc">$</span>countriesAndTerritories)) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="parameterized-report-covid-19-cases-in-europe.html#cb15-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;COVID-19 deaths&quot;</span>,</span>
+<span id="cb15-7"><a href="parameterized-report-covid-19-cases-in-europe.html#cb15-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Month&quot;</span>,</span>
+<span id="cb15-8"><a href="parameterized-report-covid-19-cases-in-europe.html#cb15-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Deaths&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/deaths_graph-1.png" width="672" /></p>
 </div>
-<p><br></p>
-<div class="float">
-<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_4.jpg" alt="Figuur 4: Weergave van de mapstructuur van dsfb2_workflows_portfolio (4/5)" />
-<div class="figcaption">Figuur 4: Weergave van de mapstructuur van dsfb2_workflows_portfolio (4/5)</div>
-</div>
-<p><br></p>
-<div class="float">
-<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_5.jpg" alt="Figuur 5: Weergave van de mapstructuur van dsfb2_workflows_portfolio (5/5)" />
-<div class="figcaption">Figuur 5: Weergave van de mapstructuur van dsfb2_workflows_portfolio (5/5)</div>
-</div>
-<p><br></p>
-<div class="float">
-<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_6.jpg" alt="Figuur 6: Weergave van de README file voor dsfb2_workflows_portfolio (1/2)" />
-<div class="figcaption">Figuur 6: Weergave van de README file voor dsfb2_workflows_portfolio (1/2)</div>
-</div>
-<p><br></p>
-<div class="float">
-<img src="guerrilla_portfolio_screenshots/guerrilla_portfolio_7.jpg" alt="Figuur 7: Weergave van de README file voor dsfb2_workflows_portfolio (2/2)" />
-<div class="figcaption">Figuur 7: Weergave van de README file voor dsfb2_workflows_portfolio (2/2)</div>
-</div>
+<div id="how-it-works" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> How it works<a href="parameterized-report-covid-19-cases-in-europe.html#how-it-works" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<video width="800" height="600" controls>
+<source src="screenrecording_parameters_converted.mp4" type="video/mp4">
+</video>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="guerrilla-analytics-rna-seq.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="reproduceerbare-data-analyse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="bronvermelding-introductie-projecticum-leptospira.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
