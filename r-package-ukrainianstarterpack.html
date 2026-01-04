@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9 R package: ukrainianstarterpack | Portfolio dsfb2 Marloes</title>
   <meta name="description" content="9 R package: ukrainianstarterpack | Portfolio dsfb2 Marloes" />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9 R package: ukrainianstarterpack | Portfolio dsfb2 Marloes" />
   <meta property="og:type" content="book" />
@@ -234,8 +234,8 @@ div.csl-indent {
 <div id="installation" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Installation<a href="r-package-ukrainianstarterpack.html#installation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can install the development version of ukrainianstarterpack from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-package-ukrainianstarterpack.html#cb8-1" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb8-2"><a href="r-package-ukrainianstarterpack.html#cb8-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;marloes6/ukrainianstarterpack&quot;</span>, <span class="at">build_vignettes=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r-package-ukrainianstarterpack.html#cb22-1" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb22-2"><a href="r-package-ukrainianstarterpack.html#cb22-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;marloes6/ukrainianstarterpack&quot;</span>, <span class="at">build_vignettes=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="functions" class="section level2 hasAnchor" number="9.2">
 <h2><span class="header-section-number">9.2</span> Functions<a href="r-package-ukrainianstarterpack.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -243,49 +243,49 @@ div.csl-indent {
 <div id="is_ukrainian" class="section level3 hasAnchor" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> is_ukrainian()<a href="r-package-ukrainianstarterpack.html#is_ukrainian" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>is_ukrainian() determines if your text is written in Ukrainian or not. Input should be in Ukrainian, Belarusian, Serbian, Macedonian, Mongolian, Bulgarian or Russian Cyrillic script and be between ” “.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-package-ukrainianstarterpack.html#cb9-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
-<span id="cb9-2"><a href="r-package-ukrainianstarterpack.html#cb9-2" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="r-package-ukrainianstarterpack.html#cb9-3" tabindex="-1"></a><span class="fu">is_ukrainian</span>(<span class="st">&quot;Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе&quot;</span>)</span>
-<span id="cb9-4"><a href="r-package-ukrainianstarterpack.html#cb9-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is Ukrainian.&quot;</span></span>
-<span id="cb9-5"><a href="r-package-ukrainianstarterpack.html#cb9-5" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="r-package-ukrainianstarterpack.html#cb9-6" tabindex="-1"></a><span class="fu">is_ukrainian</span>(<span class="st">&quot;Мы живем все вместе с собакой и кошкой в большом доме в деревне.&quot;</span>)</span>
-<span id="cb9-7"><a href="r-package-ukrainianstarterpack.html#cb9-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is not Ukrainian.&quot;</span></span>
-<span id="cb9-8"><a href="r-package-ukrainianstarterpack.html#cb9-8" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="r-package-ukrainianstarterpack.html#cb9-9" tabindex="-1"></a><span class="fu">is_ukrainian</span>(<span class="st">&quot;так&quot;</span>)</span>
-<span id="cb9-10"><a href="r-package-ukrainianstarterpack.html#cb9-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text may or may not be Ukrainian. Please provide more input if possible.&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-package-ukrainianstarterpack.html#cb23-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
+<span id="cb23-2"><a href="r-package-ukrainianstarterpack.html#cb23-2" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="r-package-ukrainianstarterpack.html#cb23-3" tabindex="-1"></a><span class="fu">is_ukrainian</span>(<span class="st">&quot;Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе&quot;</span>)</span>
+<span id="cb23-4"><a href="r-package-ukrainianstarterpack.html#cb23-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is Ukrainian.&quot;</span></span>
+<span id="cb23-5"><a href="r-package-ukrainianstarterpack.html#cb23-5" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="r-package-ukrainianstarterpack.html#cb23-6" tabindex="-1"></a><span class="fu">is_ukrainian</span>(<span class="st">&quot;Мы живем все вместе с собакой и кошкой в большом доме в деревне.&quot;</span>)</span>
+<span id="cb23-7"><a href="r-package-ukrainianstarterpack.html#cb23-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is not Ukrainian.&quot;</span></span>
+<span id="cb23-8"><a href="r-package-ukrainianstarterpack.html#cb23-8" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="r-package-ukrainianstarterpack.html#cb23-9" tabindex="-1"></a><span class="fu">is_ukrainian</span>(<span class="st">&quot;так&quot;</span>)</span>
+<span id="cb23-10"><a href="r-package-ukrainianstarterpack.html#cb23-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text may or may not be Ukrainian. Please provide more input if possible.&quot;</span></span></code></pre></div>
 </div>
 <div id="cyr_lang_detect" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> cyr_lang_detect()<a href="r-package-ukrainianstarterpack.html#cyr_lang_detect" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>cyr_lang_detect() determines in which Cyrillic language your text is written. Input should be in Ukrainian, Belarusian, Serbian, Macedonian, Mongolian, Bulgarian or Russian Cyrillic script and be between ” “.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-package-ukrainianstarterpack.html#cb10-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
-<span id="cb10-2"><a href="r-package-ukrainianstarterpack.html#cb10-2" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="r-package-ukrainianstarterpack.html#cb10-3" tabindex="-1"></a><span class="fu">cyr_lang_detect</span>(<span class="st">&quot;Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе&quot;</span>)</span>
-<span id="cb10-4"><a href="r-package-ukrainianstarterpack.html#cb10-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is Ukrainian.&quot;</span></span>
-<span id="cb10-5"><a href="r-package-ukrainianstarterpack.html#cb10-5" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="r-package-ukrainianstarterpack.html#cb10-6" tabindex="-1"></a><span class="fu">cyr_lang_detect</span>(<span class="st">&quot;Мы живем все вместе с собакой и кошкой в большом доме в деревне.&quot;</span>)</span>
-<span id="cb10-7"><a href="r-package-ukrainianstarterpack.html#cb10-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is likely Russian.&quot;</span></span>
-<span id="cb10-8"><a href="r-package-ukrainianstarterpack.html#cb10-8" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="r-package-ukrainianstarterpack.html#cb10-9" tabindex="-1"></a><span class="fu">cyr_lang_detect</span>(<span class="st">&quot;так&quot;</span>)</span>
-<span id="cb10-10"><a href="r-package-ukrainianstarterpack.html#cb10-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The language of this text couldn&#39;t be determined. If possible, please provide a longer input for a more accurate result.&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r-package-ukrainianstarterpack.html#cb24-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
+<span id="cb24-2"><a href="r-package-ukrainianstarterpack.html#cb24-2" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="r-package-ukrainianstarterpack.html#cb24-3" tabindex="-1"></a><span class="fu">cyr_lang_detect</span>(<span class="st">&quot;Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе&quot;</span>)</span>
+<span id="cb24-4"><a href="r-package-ukrainianstarterpack.html#cb24-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is Ukrainian.&quot;</span></span>
+<span id="cb24-5"><a href="r-package-ukrainianstarterpack.html#cb24-5" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="r-package-ukrainianstarterpack.html#cb24-6" tabindex="-1"></a><span class="fu">cyr_lang_detect</span>(<span class="st">&quot;Мы живем все вместе с собакой и кошкой в большом доме в деревне.&quot;</span>)</span>
+<span id="cb24-7"><a href="r-package-ukrainianstarterpack.html#cb24-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;This text is likely Russian.&quot;</span></span>
+<span id="cb24-8"><a href="r-package-ukrainianstarterpack.html#cb24-8" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="r-package-ukrainianstarterpack.html#cb24-9" tabindex="-1"></a><span class="fu">cyr_lang_detect</span>(<span class="st">&quot;так&quot;</span>)</span>
+<span id="cb24-10"><a href="r-package-ukrainianstarterpack.html#cb24-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;The language of this text couldn&#39;t be determined. If possible, please provide a longer input for a more accurate result.&quot;</span></span></code></pre></div>
 </div>
 <div id="ukr_eng_transliterate" class="section level3 hasAnchor" number="9.2.3">
 <h3><span class="header-section-number">9.2.3</span> ukr_eng_transliterate()<a href="r-package-ukrainianstarterpack.html#ukr_eng_transliterate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ukr_eng_transliterate() transliterates a text from Ukrainian Cyrillic to English Latin script. Input should be in Ukrainian Cyrillic script and be between ” “.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-package-ukrainianstarterpack.html#cb11-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
-<span id="cb11-2"><a href="r-package-ukrainianstarterpack.html#cb11-2" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="r-package-ukrainianstarterpack.html#cb11-3" tabindex="-1"></a><span class="fu">ukr_eng_transliterate</span>(<span class="st">&quot;Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе&quot;</span>)</span>
-<span id="cb11-4"><a href="r-package-ukrainianstarterpack.html#cb11-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Lyshe raz na sto rokiv Nebo narodzhuye dvokh lyudej z odniyeyu dusheyu I vidpuskaye yikh u chystyj, vil&#39;nyj polit Nam poshchastylo Ya lyublyu tebe&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-package-ukrainianstarterpack.html#cb25-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
+<span id="cb25-2"><a href="r-package-ukrainianstarterpack.html#cb25-2" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="r-package-ukrainianstarterpack.html#cb25-3" tabindex="-1"></a><span class="fu">ukr_eng_transliterate</span>(<span class="st">&quot;Лише раз на сто років Небо народжує двох людей з однією душею І відпускає їх у чистий, вільний політ Нам пощастило Я люблю тебе&quot;</span>)</span>
+<span id="cb25-4"><a href="r-package-ukrainianstarterpack.html#cb25-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Lyshe raz na sto rokiv Nebo narodzhuye dvokh lyudej z odniyeyu dusheyu I vidpuskaye yikh u chystyj, vil&#39;nyj polit Nam poshchastylo Ya lyublyu tebe&quot;</span></span></code></pre></div>
 </div>
 <div id="eng_ukr_transliterate" class="section level3 hasAnchor" number="9.2.4">
 <h3><span class="header-section-number">9.2.4</span> eng_ukr_transliterate()<a href="r-package-ukrainianstarterpack.html#eng_ukr_transliterate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>eng_ukr_transliterate() transliterates a text from English Latin to Ukrainian Cyrillic script. Input should be in English Latin script and be between ” “.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-package-ukrainianstarterpack.html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
-<span id="cb12-2"><a href="r-package-ukrainianstarterpack.html#cb12-2" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="r-package-ukrainianstarterpack.html#cb12-3" tabindex="-1"></a><span class="fu">eng_ukr_transliterate</span>(<span class="st">&quot;Sail and seek The starbound quay Calling you, calling me To be a part of your story&quot;</span>)</span>
-<span id="cb12-4"><a href="r-package-ukrainianstarterpack.html#cb12-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Саіл анд сеек Тге старбоунд куаи Каллінґ иоу, каллінґ ме То бе а парт оф иоур стори&quot;</span></span>
-<span id="cb12-5"><a href="r-package-ukrainianstarterpack.html#cb12-5" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="r-package-ukrainianstarterpack.html#cb12-6" tabindex="-1"></a><span class="fu">eng_ukr_transliterate</span>(<span class="st">&quot;shawl&quot;</span>)</span>
-<span id="cb12-7"><a href="r-package-ukrainianstarterpack.html#cb12-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;шавл&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r-package-ukrainianstarterpack.html#cb26-1" tabindex="-1"></a><span class="fu">library</span>(ukrainianstarterpack)</span>
+<span id="cb26-2"><a href="r-package-ukrainianstarterpack.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="r-package-ukrainianstarterpack.html#cb26-3" tabindex="-1"></a><span class="fu">eng_ukr_transliterate</span>(<span class="st">&quot;Sail and seek The starbound quay Calling you, calling me To be a part of your story&quot;</span>)</span>
+<span id="cb26-4"><a href="r-package-ukrainianstarterpack.html#cb26-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Саіл анд сеек Тге старбоунд куаи Каллінґ иоу, каллінґ ме То бе а парт оф иоур стори&quot;</span></span>
+<span id="cb26-5"><a href="r-package-ukrainianstarterpack.html#cb26-5" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="r-package-ukrainianstarterpack.html#cb26-6" tabindex="-1"></a><span class="fu">eng_ukr_transliterate</span>(<span class="st">&quot;shawl&quot;</span>)</span>
+<span id="cb26-7"><a href="r-package-ukrainianstarterpack.html#cb26-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;шавл&quot;</span></span></code></pre></div>
 </div>
 </div>
 <div id="please-be-aware-of-the-following" class="section level2 hasAnchor" number="9.3">

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Vrije opdracht: DNA-methylatie analyse | Portfolio dsfb2 Marloes</title>
   <meta name="description" content="4 Vrije opdracht: DNA-methylatie analyse | Portfolio dsfb2 Marloes" />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Vrije opdracht: DNA-methylatie analyse | Portfolio dsfb2 Marloes" />
   <meta property="og:type" content="book" />
@@ -297,7 +297,149 @@ div.csl-indent {
 </div>
 <div id="uitwerking" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Uitwerking<a href="vrije-opdracht-dna-methylatie-analyse.html#uitwerking" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>In verband met het uitvoeren van de vrije opdracht als laatste deel van het portfolio en daardoor geen tijd voor uitloop in combinatie met het lang duren van de data loading en alignment, is het niet gelukt om de analyse volledig uit te voeren. De analyse is tot de alignment op de server uitgevoerd, de benodigde stappen na uitvoering van de alignment zijn hieronder uitgeschreven maar niet gerund. Doordat de server moeite heeft met de grote bestanden lukt het niet om het uitgevoerde deel van de analyse naar GitHub te pushen, en zal in plaats daarvan een screenshot van de mapstructuur worden toegevoegd.</strong></p>
 <p>Om de DNA-methylatie analyse te leren heb ik H10: DNA methylation analysis using bisulfite sequencing data van <a href="https://compgenomr.github.io/book/bsseq.html" class="uri">https://compgenomr.github.io/book/bsseq.html</a> gelezen.</p>
+<p>Voor het uitvoeren van de analyse is gekozen voor een dataset waarin een whole-genome bisulfite sequencing is uitgevoerd op lipweefsel. Het doel van het onderzoek is om te bepalen of er een relatie bestaat tussen veranderingen in DNA-methylatie en schisis. Het onderzoek is te vinden op <a href="https://doi.org/10.1002/bdr2.2102" class="uri">https://doi.org/10.1002/bdr2.2102</a>. De data is verkregen via <a href="https://www.ncbi.nlm.nih.gov/sra/PRJNA877826" class="uri">https://www.ncbi.nlm.nih.gov/sra/PRJNA877826</a>.</p>
+<p>De data is eerst gedownload op de server:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb1-1" tabindex="-1"></a><span class="co"># sra-tools already installed in rnaseq environment</span></span>
+<span id="cb1-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb1-2" tabindex="-1"></a><span class="co"># conda create -n rnaseq sra-tools</span></span>
+<span id="cb1-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb1-4" tabindex="-1"></a><span class="ex">conda</span> activate rnaseq</span>
+<span id="cb1-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb1-6" tabindex="-1"></a><span class="co"># Download data files </span></span>
+<span id="cb1-7"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb1-7" tabindex="-1"></a><span class="ex">fasterq-dump</span> SRR21484149 <span class="at">--split-3</span> <span class="at">--outdir</span> <span class="st">&#39;vrije_opdracht/raw_data&#39;</span></span>
+<span id="cb1-8"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb1-9" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code></pre></div>
+<p>Er is begonnen met het laden van de data op 31-12 rond 11:30 uur. Op 3-1 rond 11:00 uur is de data nog steeds aan het laden in de folder. Run SRR21484149 lijkt geskipt en run SRR21484150 is een veel kleiner bestand dan de daarop volgende bestanden, en lijkt dus niet volledig te zijn geladen. Op het moment van schrijven lijken de runs SRR21484151 t/m SRR21484155 goed te zijn geladen. In verband met beperkte overgebleven tijd en het vollopen van de server met zeer grote bestanden zijn enkel run SRR21484151 t/m SRR21484153 bewaard voor verdere analyse. Sowieso verbaast het me dat er alsnog meerdere runs gezipt in de map terecht komen terwijl ik de fastq-dump heb afgebroken en ben gewisseld naar de fasterq-dump.</p>
+<p>Op de bestanden is een kwaliteitscontrole uitgevoerd met fastqc.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb2-1" tabindex="-1"></a><span class="co"># fastqc already installed in fastqc environment</span></span>
+<span id="cb2-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb2-3" tabindex="-1"></a><span class="ex">conda</span> activate fastqc</span>
+<span id="cb2-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb2-5" tabindex="-1"></a><span class="co"># Perform fastqc</span></span>
+<span id="cb2-6"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb2-6" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> ./vrije_opdracht/fastqc/ ./vrije_opdracht/raw_data/<span class="pp">*</span>.fastq.gz</span>
+<span id="cb2-7"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb2-8" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code></pre></div>
+<p>Vervolgens is een alignment uitgevoerd. Hiervoor is gekozen voor QuasR omdat dit programma gebruik maakt van R. De volgende stappen zijn gebaseerd op het vignette voor QuasR (<a href="https://bioconductor.org/packages/release/bioc/vignettes/QuasR/inst/doc/QuasR.html" class="uri">https://bioconductor.org/packages/release/bioc/vignettes/QuasR/inst/doc/QuasR.html</a>). Als referentiegenoom is gekozen voor het hg38 genoom. Om de resultaten van de alignment te verbeteren kan ervoor worden gekozen om de reads eerst te trimmen. In verband met beperkte tijd is het trimmen hier overgeslagen.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-1" tabindex="-1"></a><span class="co"># Install QuasR</span></span>
+<span id="cb3-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-2" tabindex="-1"></a><span class="co"># BiocManager::install(&quot;QuasR&quot;)</span></span>
+<span id="cb3-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-4" tabindex="-1"></a><span class="co"># Install reference genome</span></span>
+<span id="cb3-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-5" tabindex="-1"></a><span class="co"># BiocManager::install(&quot;BSgenome.Hsapiens.UCSC.hg38&quot;)</span></span>
+<span id="cb3-6"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-7" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="st">&quot;vrije_opdracht/raw_data/samplefile.txt&quot;</span></span>
+<span id="cb3-8"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-8" tabindex="-1"></a>hg38_index <span class="ot">&lt;-</span> <span class="st">&quot;BSgenome.Hsapiens.UCSC.hg38&quot;</span></span>
+<span id="cb3-9"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-9" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-10" tabindex="-1"></a><span class="co"># Run genome alignment</span></span>
+<span id="cb3-11"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb3-11" tabindex="-1"></a>alignment <span class="ot">&lt;-</span> <span class="fu">qAlign</span>(samples, hg38_index, <span class="at">bisulfite =</span> <span class="st">&quot;undir&quot;</span>, <span class="at">alignmentsDir =</span> <span class="st">&quot;vrije_opdracht/alignment&quot;</span>)</span></code></pre></div>
+<p>In de onderstaande afbeelding is te zien tot hoever de analyse op de server is uitgevoerd. De rest van de analyse is vanwege de beperkte tijd en lange duur van de voorgaande stappen niet uitgevoerd, maar wel hieronder uitgeschreven en overgenomen voor een volledig beeld van de analyse.</p>
+<div class="float">
+<img src="vrije_opdracht_screenshots/vrije_opdracht_map.jpg" alt="Figuur 1: Weergave van de mapstructuur van de map vrije_opdracht in dsfb2_workflows_portfolio" />
+<div class="figcaption">Figuur 1: Weergave van de mapstructuur van de map vrije_opdracht in dsfb2_workflows_portfolio</div>
+</div>
+<p><br></p>
+<p>Na het uitvoeren van de alignment kan de methylatie-fractie worden bepaald.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb4-1" tabindex="-1"></a><span class="co"># Run quantification of methylation analysis</span></span>
+<span id="cb4-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb4-2" tabindex="-1"></a>meth_quant <span class="ot">&lt;-</span> <span class="fu">qMeth</span>(alignment, <span class="at">collapseBySample =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb4-4" tabindex="-1"></a>perc_meth <span class="ot">&lt;-</span> <span class="fu">mcols</span>(meth_quant)[,<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">100</span> <span class="sc">/</span> <span class="fu">mcols</span>(meth_quant)[,<span class="dv">1</span>]</span>
+<span id="cb4-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb4-5" tabindex="-1"></a><span class="fu">summary</span>(perc_meth)</span></code></pre></div>
+<p>De volgende stappen zijn gebaseerd op <a href="https://compgenomr.github.io/book/bsseq.html" class="uri">https://compgenomr.github.io/book/bsseq.html</a>. De methylation call files worden eerst ingelezen in een methylRawList object:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb5-1" tabindex="-1"></a><span class="co"># Install methylKit</span></span>
+<span id="cb5-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb5-2" tabindex="-1"></a><span class="co"># BiocManager::install(&quot;methylKit&quot;)</span></span>
+<span id="cb5-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb5-4" tabindex="-1"></a><span class="co"># Create methylRawList</span></span>
+<span id="cb5-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb5-5" tabindex="-1"></a>methRawList<span class="ot">=</span><span class="fu">methRead</span>(file.list,</span>
+<span id="cb5-6"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb5-6" tabindex="-1"></a>           <span class="at">sample.id=</span><span class="fu">list</span>(<span class="st">&quot;test1&quot;</span>,<span class="st">&quot;test2&quot;</span>,<span class="st">&quot;test3&quot;</span>),</span>
+<span id="cb5-7"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb5-7" tabindex="-1"></a>           <span class="at">assembly=</span><span class="st">&quot;hg38&quot;</span>,</span>
+<span id="cb5-8"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb5-8" tabindex="-1"></a>           <span class="at">treatment=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb5-9"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb5-9" tabindex="-1"></a>           <span class="at">context=</span><span class="st">&quot;CpG&quot;</span></span>
+<span id="cb5-10"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb5-10" tabindex="-1"></a>           )</span></code></pre></div>
+<p>Vervolgens wordt de data op kwaliteit gecontroleerd. Hiervoor wordt bekeken of de data bimodaal verdeeld is en of er basen zijn met een abnormaal hoge coverage.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb6-1" tabindex="-1"></a><span class="co"># Check data for bimodal distribution</span></span>
+<span id="cb6-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb6-2" tabindex="-1"></a><span class="fu">getMethylationStats</span>(methRawList[[<span class="dv">2</span>]],<span class="at">plot=</span><span class="cn">TRUE</span>,<span class="at">both.strands=</span><span class="cn">FALSE</span>)</span>
+<span id="cb6-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb6-4" tabindex="-1"></a><span class="co"># Check data for unusually high coverage</span></span>
+<span id="cb6-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb6-5" tabindex="-1"></a><span class="fu">getCoverageStats</span>(methRawList[[<span class="dv">2</span>]],<span class="at">plot=</span><span class="cn">TRUE</span>,<span class="at">both.strands=</span><span class="cn">FALSE</span>)</span>
+<span id="cb6-6"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb6-7" tabindex="-1"></a><span class="co"># Filter bases with unusual high or low coverage</span></span>
+<span id="cb6-8"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb6-8" tabindex="-1"></a>filtered_methRawList<span class="ot">=</span><span class="fu">filterByCoverage</span>(methRawList,<span class="at">lo.count=</span><span class="dv">10</span>,<span class="at">lo.perc=</span><span class="cn">NULL</span>,</span>
+<span id="cb6-9"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb6-9" tabindex="-1"></a>                                      <span class="at">hi.count=</span><span class="cn">NULL</span>,<span class="at">hi.perc=</span><span class="fl">99.9</span>)</span></code></pre></div>
+<p>De data wordt samengevoegd in een tabel waarin de CpG’s die aanwezig zijn in alle monsters worden verzameld:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb7-1" tabindex="-1"></a><span class="co"># Merge data into a table</span></span>
+<span id="cb7-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb7-2" tabindex="-1"></a>methRawList<span class="ot">=</span>methylKit<span class="sc">::</span><span class="fu">unite</span>(methRawList, <span class="at">destrand=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Daarna wordt de data verder gefilterd.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb8-1" tabindex="-1"></a><span class="co"># Filter data based on standard deviation</span></span>
+<span id="cb8-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb8-2" tabindex="-1"></a>pm<span class="ot">=</span><span class="fu">percMethylation</span>(methRawList) <span class="co"># get percent methylation matrix</span></span>
+<span id="cb8-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb8-3" tabindex="-1"></a>mds<span class="ot">=</span>matrixStats<span class="sc">::</span><span class="fu">rowSds</span>(pm) <span class="co"># calculate standard deviation of CpGs</span></span>
+<span id="cb8-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb8-4" tabindex="-1"></a><span class="fu">head</span>(methRawList[mds<span class="sc">&gt;</span><span class="dv">20</span>,])</span>
+<span id="cb8-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb8-5" tabindex="-1"></a><span class="fu">hist</span>(mds,<span class="at">col=</span><span class="st">&quot;cornflowerblue&quot;</span>,<span class="at">xlab=</span><span class="st">&quot;Std. dev. per CpG&quot;</span>)</span></code></pre></div>
+<p>De relatie tussen de verschillende monsters wordt weergegeven door de monsters te clusteren:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb9-1" tabindex="-1"></a><span class="co"># Cluster samples in a dendrogram</span></span>
+<span id="cb9-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb9-2" tabindex="-1"></a><span class="fu">clusterSamples</span>(methRawList, <span class="at">dist=</span><span class="st">&quot;correlation&quot;</span>, <span class="at">method=</span><span class="st">&quot;ward&quot;</span>, <span class="at">plot=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb9-4" tabindex="-1"></a><span class="co"># PCA analysis screeplot</span></span>
+<span id="cb9-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb9-5" tabindex="-1"></a><span class="fu">PCASamples</span>(methRawList, <span class="at">screeplot=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-6"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb9-6" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb9-7" tabindex="-1"></a><span class="co"># PCA analysis scatterplot</span></span>
+<span id="cb9-8"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb9-8" tabindex="-1"></a>pc<span class="ot">=</span><span class="fu">PCASamples</span>(methRawList,<span class="at">obj.return =</span> <span class="cn">TRUE</span>, <span class="at">adj.lim=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<p>De methylatie in de verschillende testcondities kan nu met elkaar worden vergeleken met behulp van Fisher’s exact test. Voor het uitvoeren van deze stap zou de volledige dataset geladen moeten zijn. De in dit geval geladen drie runs zijn allemaal afkomstig van abnormaal lipweefsel en vallen dus onder één testconditie, de controle van gezond lipweefsel ontbreekt.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-1" tabindex="-1"></a><span class="co"># Run Fisher&#39;s exact test</span></span>
+<span id="cb10-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-2" tabindex="-1"></a><span class="fu">getSampleID</span>(methRawList)</span>
+<span id="cb10-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-3" tabindex="-1"></a>new_methRawList<span class="ot">=</span><span class="fu">reorganize</span>(meth,<span class="at">sample.ids=</span><span class="fu">c</span>(<span class="st">&quot;test1&quot;</span>,<span class="st">&quot;ctrl1&quot;</span>),<span class="at">treatment=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>))</span>
+<span id="cb10-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-4" tabindex="-1"></a>dmf<span class="ot">=</span><span class="fu">calculateDiffMeth</span>(new_methRawList)</span>
+<span id="cb10-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-5" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-6" tabindex="-1"></a><span class="co"># Pool samples and run Fisher&#39;s exact test again</span></span>
+<span id="cb10-7"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-7" tabindex="-1"></a>pooled_meth<span class="ot">=</span><span class="fu">pool</span>(methRawList,<span class="at">sample.ids=</span><span class="fu">c</span>(<span class="st">&quot;test&quot;</span>,<span class="st">&quot;control&quot;</span>))</span>
+<span id="cb10-8"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-8" tabindex="-1"></a>dmf_pooled<span class="ot">=</span><span class="fu">calculateDiffMeth</span>(pooled_meth)</span>
+<span id="cb10-9"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-9" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-10" tabindex="-1"></a><span class="co"># Filter the differentially methylated bases using default cutoff values</span></span>
+<span id="cb10-11"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-11" tabindex="-1"></a>all.diff<span class="ot">=</span><span class="fu">getMethylDiff</span>(dmf_pooled,<span class="at">difference=</span><span class="dv">25</span>,<span class="at">qvalue=</span><span class="fl">0.01</span>,<span class="at">type=</span><span class="st">&quot;all&quot;</span>)</span>
+<span id="cb10-12"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-12" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-13" tabindex="-1"></a>hyper<span class="ot">=</span><span class="fu">getMethylDiff</span>(dmf_pooled,<span class="at">difference=</span><span class="dv">25</span>,<span class="at">qvalue=</span><span class="fl">0.01</span>,<span class="at">type=</span><span class="st">&quot;hyper&quot;</span>)</span>
+<span id="cb10-14"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-14" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb10-15" tabindex="-1"></a>hypo<span class="ot">=</span><span class="fu">getMethylDiff</span>(dmf_pooled,<span class="at">difference=</span><span class="dv">25</span>,<span class="at">qvalue=</span><span class="fl">0.01</span>,<span class="at">type=</span><span class="st">&quot;hypo&quot;</span>)</span></code></pre></div>
+<p>De verschillen in methylatie tussen monsters kunnen ook worden bepaald door middel van logistic regression:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb11-1" tabindex="-1"></a><span class="co"># Run Chi-square test</span></span>
+<span id="cb11-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb11-2" tabindex="-1"></a>dm.lr<span class="ot">=</span><span class="fu">calculateDiffMeth</span>(methRawList,<span class="at">overdispersion =</span> <span class="st">&quot;MN&quot;</span>,<span class="at">test =</span><span class="st">&quot;Chisq&quot;</span>)</span></code></pre></div>
+<p>Daarnaast kan het verschil in methylatie per regio worden bepaald. Hiervoor kunnen de basen in groepen van een vast aantal worden samengevoegd, of als regio’s van interesse bekend zijn kunnen deze worden opgegeven. Omdat niet precies bekend is wat de regio’s van interesse voor deze dataset zijn is hieronder alleen de code voor regio’s van vaste aantallen basen weergegeven.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb12-1" tabindex="-1"></a><span class="co"># Determine methylation differentiation per region</span></span>
+<span id="cb12-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb12-2" tabindex="-1"></a>tiles<span class="ot">=</span><span class="fu">tileMethylCounts</span>(methRawList,<span class="at">win.size=</span><span class="dv">1000</span>,<span class="at">step.size=</span><span class="dv">1000</span>)</span>
+<span id="cb12-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb12-3" tabindex="-1"></a><span class="fu">head</span>(tiles[[<span class="dv">1</span>]],<span class="dv">3</span>)</span></code></pre></div>
+<p>Verder kunnen de verschillen in methylatie binnen hetzelfde monster worden weergegeven met een methylatie segmentatie analyse. De methylatie data zal hiervoor moeten worden aangepast naar de regio van interesse op basis van het experiment.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-1" tabindex="-1"></a><span class="co"># Read methylation data</span></span>
+<span id="cb13-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-2" tabindex="-1"></a>methFile<span class="ot">=</span><span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>,<span class="st">&quot;H1.chr21.chr22.rds&quot;</span>,</span>
+<span id="cb13-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-3" tabindex="-1"></a>                     <span class="at">package=</span><span class="st">&quot;compGenomRData&quot;</span>)</span>
+<span id="cb13-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-4" tabindex="-1"></a>mbw<span class="ot">=</span><span class="fu">readRDS</span>(methFile)</span>
+<span id="cb13-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-5" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-6" tabindex="-1"></a><span class="co"># Segment methylation data</span></span>
+<span id="cb13-7"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-7" tabindex="-1"></a>res<span class="ot">=</span><span class="fu">methSeg</span>(mbw,<span class="at">minSeg=</span><span class="dv">10</span>,<span class="at">G=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb13-8"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-8" tabindex="-1"></a>            <span class="at">join.neighbours =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-9"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-9" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-10" tabindex="-1"></a><span class="co"># Plot mean methylation and segment length</span></span>
+<span id="cb13-11"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-11" tabindex="-1"></a><span class="fu">plot</span>(res<span class="sc">$</span>seg.mean,</span>
+<span id="cb13-12"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-12" tabindex="-1"></a>     <span class="fu">log10</span>(<span class="fu">width</span>(res)),<span class="at">pch=</span><span class="dv">20</span>,</span>
+<span id="cb13-13"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-13" tabindex="-1"></a>     <span class="at">col=</span>scales<span class="sc">::</span><span class="fu">alpha</span>(<span class="fu">rainbow</span>(<span class="dv">4</span>)[<span class="fu">as.numeric</span>(res<span class="sc">$</span>seg.group)], <span class="fl">0.2</span>),</span>
+<span id="cb13-14"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-14" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;log10(length)&quot;</span>,</span>
+<span id="cb13-15"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb13-15" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;methylation proportion&quot;</span>)</span></code></pre></div>
+<p>Ten slotte wordt de data geannoteerd op basis van regio en CpG islands:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-1" tabindex="-1"></a><span class="co"># Read gene file</span></span>
+<span id="cb14-2"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-2" tabindex="-1"></a>transcriptBED<span class="ot">=</span><span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;refseq.hg38.bed.txt&quot;</span>, </span>
+<span id="cb14-3"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-3" tabindex="-1"></a>                                           <span class="at">package =</span> <span class="st">&quot;methylKit&quot;</span>)</span>
+<span id="cb14-4"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-4" tabindex="-1"></a>gene.obj<span class="ot">=</span><span class="fu">readTranscriptFeatures</span>(transcriptBED)</span>
+<span id="cb14-5"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-5" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-6" tabindex="-1"></a><span class="co"># Annotate promoter/exon/intron regions</span></span>
+<span id="cb14-7"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-7" tabindex="-1"></a><span class="fu">annotateWithGeneParts</span>(<span class="fu">as</span>(all.diff,<span class="st">&quot;GRanges&quot;</span>),gene.obj)</span>
+<span id="cb14-8"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-8" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-9" tabindex="-1"></a><span class="co"># Annotate CpG islands</span></span>
+<span id="cb14-10"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-10" tabindex="-1"></a>cpg.file<span class="ot">=</span><span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;cpgi.hg38.bed.txt&quot;</span>, </span>
+<span id="cb14-11"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-11" tabindex="-1"></a>                                        <span class="at">package =</span> <span class="st">&quot;methylKit&quot;</span>)</span>
+<span id="cb14-12"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-12" tabindex="-1"></a>cpg.obj<span class="ot">=</span><span class="fu">readFeatureFlank</span>(cpg.file,</span>
+<span id="cb14-13"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-13" tabindex="-1"></a>                           <span class="at">feature.flank.name=</span><span class="fu">c</span>(<span class="st">&quot;CpGi&quot;</span>,<span class="st">&quot;shores&quot;</span>))</span>
+<span id="cb14-14"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-14" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-15" tabindex="-1"></a>diffCpGann<span class="ot">=</span><span class="fu">annotateWithFeatureFlank</span>(<span class="fu">as</span>(all.diff,<span class="st">&quot;GRanges&quot;</span>),</span>
+<span id="cb14-16"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-16" tabindex="-1"></a>                                    cpg.obj<span class="sc">$</span>CpGi,cpg.obj<span class="sc">$</span>shores,</span>
+<span id="cb14-17"><a href="vrije-opdracht-dna-methylatie-analyse.html#cb14-17" tabindex="-1"></a>                         <span class="at">feature.name=</span><span class="st">&quot;CpGi&quot;</span>,<span class="at">flank.name=</span><span class="st">&quot;shores&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
